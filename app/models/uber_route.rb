@@ -1,0 +1,2 @@
+class UberRoute < ApplicationRecord
+end
