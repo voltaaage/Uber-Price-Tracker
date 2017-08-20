@@ -44,3 +44,6 @@ gem 'devise'
 
 # CSS & JS
 gem 'bootstrap-sass'
+
+# Google Maps API
+gem 'geocoder'
