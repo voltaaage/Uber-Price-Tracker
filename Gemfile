@@ -45,5 +45,8 @@ gem 'devise'
 # CSS & JS
 gem 'bootstrap-sass'
 
-# Google Maps API
+# Geocoding
 gem 'geocoder'
+
+# Uber API
+gem 'uber-ruby', require: 'uber'
