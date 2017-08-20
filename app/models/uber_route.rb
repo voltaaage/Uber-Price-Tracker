@@ -4,7 +4,7 @@ class UberRoute < ApplicationRecord
   belongs_to :user
 
   def create_price_estimate_from_uberx_price_estimate
-    PriceEstimate.create(
+    self.price_estimates.create(
       high_estimate: uber_x_price_estimate.high_estimate,
       low_estimate: uber_x_price_estimate.low_estimate,
       distance: uber_x_price_estimate.distance,

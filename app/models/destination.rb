@@ -14,7 +14,6 @@ class Destination < ApplicationRecord
   def new_routes_for_new_destination
     existing_destinations = user.destinations
     existing_destinations.each do |existing_destination|
-      puts user.uber_routes.count
       if id != existing_destination.id
         route = user.uber_routes.create(
           destination_1_lat: existing_destination.latitude,
@@ -25,7 +24,6 @@ class Destination < ApplicationRecord
         route.destinations << self
         route.destinations << existing_destination
       end
-      puts user.uber_routes.count
     end
   end
 end
