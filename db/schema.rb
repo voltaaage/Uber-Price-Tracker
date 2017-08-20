@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820205915) do
+ActiveRecord::Schema.define(version: 20170820225428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170820205915) do
     t.string "address"
     t.string "city"
     t.string "state"
-    t.string "full_street_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170820205915) do
     t.float "high_estimate"
     t.float "low_estimate"
     t.float "distance"
+    t.float "surge_multiplier"
     t.bigint "uber_routes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170820205915) do
     t.string "destination_2_long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_uber_routes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,4 +77,5 @@ ActiveRecord::Schema.define(version: 20170820205915) do
   end
 
   add_foreign_key "price_estimates", "uber_routes", column: "uber_routes_id"
+  add_foreign_key "uber_routes", "users"
 end
