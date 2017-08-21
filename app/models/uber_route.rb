@@ -8,12 +8,13 @@ class UberRoute < ApplicationRecord
       high_estimate: uber_x_price_estimate.high_estimate,
       low_estimate: uber_x_price_estimate.low_estimate,
       distance: uber_x_price_estimate.distance,
-      surge_multiplier: uber_x_price_estimate.surge_multiplier
+      surge_multiplier: uber_x_price_estimate.surge_multiplier,
+      time_requested: DateTime.current
     )
   end
 
   def uber_route_price_estimate
-    @uber_route_price_estimate = client.price_estimations(
+    @uber_route_price_estimate ||= client.price_estimations(
       start_latitude: destination_1_lat,
       start_longitude: destination_1_long,
       end_latitude: destination_2_lat,
@@ -23,6 +24,11 @@ class UberRoute < ApplicationRecord
 
   def uber_x_price_estimate
     @uber_x_price_estimate ||= uber_route_price_estimate.find{|price| price.display_name == 'uberX'}
+  end
+
+
+  def formatted_destinations
+    destinations.map(&:full_street_address).join(' TO ')
   end
 
   private

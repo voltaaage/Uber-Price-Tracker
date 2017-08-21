@@ -1,0 +1,21 @@
+<h2><%= @uber_route.formatted_destinations %></h2>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Time Requested</th>
+      <th>Distance</th>
+      <th>Low Estimate</th>
+      <th>High Estimate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @price_estimates.each do |estimate| %>
+      <tr>
+        <th scope="row"><%= estimate.formatted_date_time %></th>
+        <td><%= estimate.distance %></td>
+        <td><%= estimate.low_estimate %></td>
+        <td><%= estimate.high_estimate %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
