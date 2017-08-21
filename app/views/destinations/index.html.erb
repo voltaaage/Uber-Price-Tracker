@@ -1,0 +1,13 @@
+<div class='page-header'>
+  <h1>Destinations</h1>
+  <p>A list of all of your commonly traveled destinations.</p>
+</div>
+
+<ul>
+  <% @destinations.each do |destination| %>
+    <li>
+      <%= link_to "#{destination.full_street_address}", destination %>
+    </li>
+  <% end %>
+</ul>
+

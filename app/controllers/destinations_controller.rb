@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   def index
+    @destinations = current_user.destinations
   end
 
   def new

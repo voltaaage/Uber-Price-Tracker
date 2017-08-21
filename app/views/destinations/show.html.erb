@@ -1,9 +1,12 @@
 <div class='page-header'>
   <h1><%= @destination.address %></h1>
 </div>
+
 <ul>
-  <li><%= @destination.address %></li>
-  <li><%= @destination.city %></li>
-  <li><%= @destination.state %></li>
-  <li><%= @destination.full_street_address %></li>
+  <li><strong>Address:</strong> <%= @destination.address %></li>
+  <li><strong>City:</strong> <%= @destination.city %></li>
+  <li><strong>State:</strong> <%= @destination.state %></li>
+  <li><strong>Full Address:</strong> <%= @destination.full_street_address %></li>
+  <li><strong>Latitude:</strong> <%= @destination.latitude %></li>
+  <li><strong>Longitude:</strong> <%= @destination.longitude %></li>
 </ul>
