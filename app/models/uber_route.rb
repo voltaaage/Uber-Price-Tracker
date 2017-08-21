@@ -1,16 +1,21 @@
 class UberRoute < ApplicationRecord
   has_and_belongs_to_many :destinations
-  has_many :price_estimates
+  has_many :price_estimates, dependent: :destroy
   belongs_to :user
 
   def create_price_estimate_from_uberx_price_estimate
-    self.price_estimates.create(
-      high_estimate: uber_x_price_estimate.high_estimate,
-      low_estimate: uber_x_price_estimate.low_estimate,
-      distance: uber_x_price_estimate.distance,
-      surge_multiplier: uber_x_price_estimate.surge_multiplier,
-      time_requested: DateTime.current
-    )
+    puts uber_route_price_estimate
+    if uber_route_price_estimate
+      self.price_estimates.create(
+        high_estimate: uber_x_price_estimate.high_estimate,
+        low_estimate: uber_x_price_estimate.low_estimate,
+        distance: uber_x_price_estimate.distance,
+        surge_multiplier: uber_x_price_estimate.surge_multiplier,
+        time_requested: DateTime.current
+      )
+    end
+  rescue StandardError => e
+    puts e.inspect
   end
 
   def uber_route_price_estimate
