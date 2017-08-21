@@ -1,7 +1,7 @@
 <ul>
   <% @uber_routes.each do |route| %>
     <li>
-      <%= link_to "Route #{route.id}", route %>
+      <%= link_to "#{route.formatted_destinations}", route %>
     </li>
   <% end %>
 </ul>
