@@ -1,0 +1,2 @@
+class DestinationPolicy < ApplicationPolicy
+end

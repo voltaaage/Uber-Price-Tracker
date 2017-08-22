@@ -1,0 +1,2 @@
+class UberRoutePolicy < ApplicationPolicy
+end

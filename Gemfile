@@ -50,3 +50,6 @@ gem 'geocoder'
 
 # Uber API
 gem 'uber-ruby', require: 'uber'
+
+# Authorization
+gem 'pundit'

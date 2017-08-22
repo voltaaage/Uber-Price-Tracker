@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :confirmable
   has_many :destinations
   has_many :uber_routes
+
+  def admin?
+    role == 'admin'
+  end
 end
