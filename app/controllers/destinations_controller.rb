@@ -17,6 +17,12 @@ class DestinationsController < ApplicationController
     @destination = Destination.find_by(id: params[:id])
   end
 
+  def destroy
+    @destination = Destination.find_by(id: params[:id])
+    @destination.destroy if @destination.user == current_user
+    redirect_to destinations_path
+  end
+
   private
 
   def destination_params

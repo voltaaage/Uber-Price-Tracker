@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :destinations
-  resources :uber_routes, only: [:index, :show]
+  resources :uber_routes
 end

@@ -2,6 +2,7 @@ class Destination < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :uber_routes
 
+  before_destroy :destroy_associated_uber_routes
   after_save :new_routes_for_new_destination
 
   geocoded_by :full_street_address
@@ -25,5 +26,9 @@ class Destination < ApplicationRecord
         route.destinations << existing_destination
       end
     end
+  end
+
+  def destroy_associated_uber_routes
+    UberRoute.joins(:destinations).where(destinations: {id: id}).destroy_all
   end
 end

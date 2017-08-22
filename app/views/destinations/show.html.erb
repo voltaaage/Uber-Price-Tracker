@@ -10,3 +10,10 @@
   <li><strong>Latitude:</strong> <%= @destination.latitude %></li>
   <li><strong>Longitude:</strong> <%= @destination.longitude %></li>
 </ul>
+
+<%= link_to 'Delete Destination',
+  @destination,
+  method: :delete,
+  class: 'btn btn-danger',
+  data: { confirm: 'Are you sure you want to delete this destination?' }
+%>

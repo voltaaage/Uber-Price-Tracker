@@ -1,4 +1,12 @@
 <h2><%= @uber_route.formatted_destinations %></h2>
+
+<%= link_to 'Delete Uber Route',
+  @uber_route,
+  method: :delete,
+  class: 'btn btn-danger',
+  data: { confirm: 'Are you sure you want to delete this route?' }
+%>
+
 <table class="table">
   <thead class="thead-inverse">
     <tr>
