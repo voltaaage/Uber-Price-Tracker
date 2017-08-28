@@ -9,7 +9,7 @@ class UberRoutesController < ApplicationController
 
   def show
     @uber_route = UberRoute.find(params[:id])
-    @price_estimates = @uber_route.price_estimates
+    @price_estimates = @uber_route.price_estimates.sort_by{|estimate| estimate.created_at}
   end
 
   def destroy
